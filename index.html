@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Srija | Vehicle Service Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark">S<span>+</span></span><span><b>Srija</b><small>Automotive Care</small></span></a>
+    <div class="side-label">WORKSPACE</div>
+    <nav>
+      <button class="nav-link active" data-page="dashboard"><span>▦</span> Overview</button>
+      <button class="nav-link" data-page="customers"><span>♙</span> Customers</button>
+      <button class="nav-link" data-page="vehicles"><span>▰</span> Vehicles</button>
+      <button class="nav-link" data-page="services"><span>⚙</span> Service jobs</button>
+      <button class="nav-link" data-page="payments"><span>◈</span> Payments</button>
+    </nav>
+    <div class="sidebar-bottom"><div class="help-card"><div class="help-icon">✦</div><b>Keep things moving</b><p>Manage every visit, repair and payment in one place.</p></div><div class="profile"><div class="avatar">S</div><div><b>Srija</b><small>Administrator</small></div><span class="online-dot"></span></div></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><div class="eyebrow" id="eyebrow">WORKSPACE / OVERVIEW</div><h1 id="pageTitle">Good afternoon, Srija <span>✦</span></h1><p class="subhead" id="pageSubtitle">Here’s what’s happening at your service center today.</p></div><div class="top-actions"><div class="connection" id="connection"><i></i> Checking database</div><button class="icon-btn" title="Refresh data" onclick="refreshCurrent()">↻</button><div class="avatar top-avatar">S</div></div></header>
+    <section id="dashboardPage" class="page active">
+      <div class="welcome-banner"><div><div class="banner-kicker">YOUR WORKSHOP, IN CONTROL</div><h2>Service smarter.<br><em>Move forward.</em></h2><p>All your customers, vehicles and service jobs — beautifully organised.</p><button class="primary-btn" onclick="openCreate('services')">＋ Create service job</button></div><div class="banner-art"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="car-emoji">🚘</div><div class="spark spark-a">✦</div><div class="spark spark-b">✧</div></div><div class="banner-number">01 <span>/ CONTROL CENTER</span></div></div>
+      <div class="section-heading"><div><h2>At a glance</h2><p>Your workshop snapshot</p></div><span class="live-tag"><i></i> LIVE DATABASE</span></div>
+      <div class="stats-grid">
+        <article class="stat-card"><div class="stat-top"><span>Total customers</span><span class="stat-icon purple">♙</span></div><strong id="statCustomers">—</strong><small>Registered customers</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Vehicles</span><span class="stat-icon blue">▰</span></div><strong id="statVehicles">—</strong><small>In your records</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Service jobs</span><span class="stat-icon orange">⚙</span></div><strong id="statServices">—</strong><small>All recorded jobs</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Awaiting completion</span><span class="stat-icon green">◷</span></div><strong id="statPending">—</strong><small>Open service jobs</small></article>
+      </div>
+      <div class="lower-grid"><section class="panel recent-panel"><div class="panel-heading"><div><h2>Recent service activity</h2><p>The latest jobs added to your workshop</p></div><button class="text-btn" onclick="showPage('services')">View all →</button></div><div id="recentList" class="recent-list"><div class="empty-state">Loading your latest activity…</div></div></section><section class="panel revenue-panel"><div class="panel-heading"><div><h2>Payments received</h2><p>Successful payments only</p></div><span class="revenue-icon">₹</span></div><strong class="revenue-value" id="statRevenue">₹0</strong><div class="revenue-note"><span class="revenue-dot"></span> Synced directly from MySQL</div><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></section></div>
+      <div class="section-heading extended-heading"><div><h2>Workshop operations</h2><p>A clearer view of what needs attention next</p></div><span class="date-chip">SERVICE OVERVIEW · 2026</span></div>
+      <div class="operations-grid">
+        <section class="panel workflow-panel">
+          <div class="panel-heading"><div><h2>Service workflow</h2><p>From booking to vehicle handover</p></div><span class="soft-icon">✦</span></div>
+          <div class="workflow-steps">
+            <div class="workflow-step"><span class="step-no">01</span><div><b>Request received</b><small>Customer and vehicle details are registered</small></div><span class="step-mark">✓</span></div>
+            <div class="workflow-step"><span class="step-no">02</span><div><b>Inspection & estimate</b><small>Service type and estimated charge are recorded</small></div><span class="step-mark">02</span></div>
+            <div class="workflow-step"><span class="step-no">03</span><div><b>Work in progress</b><small>Mechanic updates the job status</small></div><span class="step-mark">03</span></div>
+            <div class="workflow-step"><span class="step-no">04</span><div><b>Payment & handover</b><small>Payment is recorded before delivery</small></div><span class="step-mark">04</span></div>
+          </div>
+        </section>
+        <section class="panel quick-panel">
+          <div class="panel-heading"><div><h2>Quick actions</h2><p>Jump straight into your daily tasks</p></div></div>
+          <button class="quick-action" onclick="openCreate('customers')"><span class="quick-symbol lilac">＋</span><span><b>Register customer</b><small>Add a new customer profile</small></span><i>↗</i></button>
+          <button class="quick-action" onclick="openCreate('vehicles')"><span class="quick-symbol mint">▰</span><span><b>Add a vehicle</b><small>Link a vehicle to its owner</small></span><i>↗</i></button>
+          <button class="quick-action" onclick="openCreate('services')"><span class="quick-symbol peach">⚙</span><span><b>Book a service</b><small>Create and track a service job</small></span><i>↗</i></button>
+          <button class="quick-action" onclick="openCreate('payments')"><span class="quick-symbol sky">₹</span><span><b>Record payment</b><small>Update a customer's payment</small></span><i>↗</i></button>
+        </section>
+      </div>
+      <section class="panel service-menu-panel">
+        <div class="panel-heading"><div><h2>Popular workshop services</h2><p>Common jobs you can record in the service board</p></div><button class="text-btn" onclick="showPage('services')">Manage services →</button></div>
+        <div class="service-catalog">
+          <article class="service-tile"><div class="service-art art-one">🛢️</div><b>Oil & filter change</b><small>Routine engine maintenance</small><span>QUICK SERVICE</span></article>
+          <article class="service-tile"><div class="service-art art-two">🛞</div><b>Tyre & wheel care</b><small>Tyre checks and alignment</small><span>VEHICLE CARE</span></article>
+          <article class="service-tile"><div class="service-art art-three">🔋</div><b>Battery inspection</b><small>Battery health and charging</small><span>DIAGNOSTICS</span></article>
+          <article class="service-tile"><div class="service-art art-four">🧰</div><b>General servicing</b><small>Multi-point vehicle check</small><span>FULL SERVICE</span></article>
+        </div>
+      </section>
+      <section class="bottom-note"><div class="bottom-note-icon">✧</div><div><b>A well-maintained record keeps every visit smoother.</b><p>Keep customer details, vehicle information, service progress and payments updated for a complete service history.</p></div><button class="secondary-btn" onclick="showPage('customers')">Explore records</button></section>
+    </section>
+    <section id="dataPage" class="page">
+      <div class="toolbar"><div class="search-wrap"><span>⌕</span><input id="searchInput" placeholder="Search records…" oninput="renderTable()"></div><button class="primary-btn" id="addButton" onclick="openCreate()">＋ Add new</button></div>
+      <section class="panel table-panel"><div class="table-heading"><div><h2 id="tableTitle">Records</h2><p id="tableDescription">Manage your information</p></div><span class="record-count" id="recordCount">0 records</span></div><div class="table-scroll"><table><thead id="tableHead"></thead><tbody id="tableBody"></tbody></table></div><div id="tableEmpty" class="empty-state" hidden>No records found. Add your first record to get started.</div></section>
+    </section>
+    <footer>© 2026 Srija Automotive Care <span>Designed for smoother service operations ✦</span></footer>
+  </main>
+  <div class="modal-backdrop" id="modalBackdrop" onclick="backdropClose(event)"><div class="modal"><div class="modal-head"><div><div class="eyebrow">RECORD MANAGEMENT</div><h2 id="modalTitle">Add record</h2></div><button class="close-btn" onclick="closeModal()">×</button></div><form id="recordForm"><div id="formFields" class="form-grid"></div><div class="form-error" id="formError"></div><div class="modal-actions"><button type="button" class="secondary-btn" onclick="closeModal()">Cancel</button><button type="submit" class="primary-btn" id="saveButton">Save record</button></div></form></div></div>
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body></html>
